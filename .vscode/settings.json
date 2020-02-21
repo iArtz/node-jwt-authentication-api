@@ -1,3 +1,15 @@
 {
-    "window.zoomLevel": -1,
+  "window.zoomLevel": -1,
+  "rest-client.environmentVariables": {
+    "$shared": {
+      "version": "v1"
+    },
+    "local": {
+      "host": "localhost:4000"
+    },
+    "production": {
+      "host": "example.com",
+      "secretKey": "PRODSECRET"
+    }
+  }
 }

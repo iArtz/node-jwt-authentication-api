@@ -1,5 +1,5 @@
-﻿const jwt = require('jsonwebtoken');
-const config = require('../config.json');
+const jwt = require('jsonwebtoken');
+const { secret } = require('config');
 
 // users hardcoded for simplicity, store in a db for production applications
 const users = [
@@ -17,10 +17,10 @@ async function authenticate({ username, password }) {
     (u) => u.username === username && u.password === password,
   );
   if (user) {
-    const token = jwt.sign({ sub: user.id }, config.secret);
+    const token = jwt.sign({ sub: user.id }, secret);
     const { password, ...userWithoutPassword } = user;
     return {
-      ...userWithoutPassword,
+      userWithoutPassword,
       token,
     };
   }
